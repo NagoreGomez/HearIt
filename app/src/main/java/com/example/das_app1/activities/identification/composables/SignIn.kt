@@ -39,7 +39,7 @@ import com.example.das_app1.R
  * SignIn es el elemento de la IU que contiene el formulario de registro.
  *
  * @param identificationViewModel [IdentificationViewModel] contiene los estados y llamadas necesarias.
- * @param onLogIn devolución de llamada para el registro.
+ * @param onSignIn devolución de llamada para el registro.
  */
 
 @Composable

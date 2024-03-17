@@ -121,8 +121,7 @@ fun IdentificationScreen(
     val isVertical= LocalConfiguration.current.orientation == Configuration.ORIENTATION_PORTRAIT
 
     // ***************** PANTALLA PRINCIPAL *****************
-    Scaffold(
-    ) { padding ->
+    Scaffold { padding ->
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize().padding(padding).verticalScroll(rememberScrollState()).horizontalScroll(rememberScrollState())

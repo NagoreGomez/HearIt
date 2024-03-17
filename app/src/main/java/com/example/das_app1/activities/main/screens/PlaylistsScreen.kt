@@ -1,12 +1,10 @@
 package com.example.das_app1.activities.main.screens
 
-
 import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -14,8 +12,6 @@ import com.example.das_app1.activities.main.MainViewModel
 import com.example.das_app1.R
 import com.example.das_app1.activities.main.PreferencesViewModel
 import com.example.das_app1.activities.main.composables.Playlists
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 /*************************************************************************
  ****                       PlaylistsScreen                        ****

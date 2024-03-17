@@ -1,6 +1,5 @@
 package com.example.das_app1.activities.main
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -46,7 +45,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -58,21 +56,13 @@ import com.example.das_app1.activities.main.screens.Screens
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import android.content.res.Configuration
-import android.os.Build
-import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.LibraryMusic
-import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.LibraryMusic
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import kotlin.system.exitProcess
-import androidx.compose.runtime.LaunchedEffect
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberPermissionState
 
 
 /*************************************************************************
@@ -96,7 +86,6 @@ class MainActivity : AppCompatActivity() {
             // Recargar el idioma
             preferencesViewModel.reloadLang(preferencesViewModel.prefLang.collectAsState(initial = preferencesViewModel.currentSetLang).value)
 
-
             DAS_LANATheme(preferencesViewModel)  {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -119,7 +108,6 @@ class MainActivity : AppCompatActivity() {
 /**
  * Pantalla principal.
  *
- *
  */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -140,7 +128,7 @@ private fun MainActivityScreen(
     // Indica si se muestra el FAB del perfil, cuando la horientacion es horizontal)
     var showProfileFAB by rememberSaveable { mutableStateOf(false) }
     // Indica si el FAB de add está en PlaylistScreen (para crear una nueva lista) o en SongsScreen (para añadir canciones a la lista)
-    var PlaylistScreenFAB by rememberSaveable { mutableStateOf(false) }
+    var playlistScreenFAB by rememberSaveable { mutableStateOf(false) }
 
 
 
@@ -290,7 +278,7 @@ private fun MainActivityScreen(
             if (showAddFAB){
                 FloatingActionButton(
                     onClick = {
-                        if (PlaylistScreenFAB){
+                        if (playlistScreenFAB){
                             mainViewModel.playlistName=""
                             navController.navigate(Screens.CreatePlaylistScreen.route)
                         }
@@ -308,8 +296,6 @@ private fun MainActivityScreen(
         },
         floatingActionButtonPosition = FabPosition.End
     ) {padding ->
-
-
         NavHost(
             modifier = modifier.padding(),
             navController = navController,
@@ -318,7 +304,7 @@ private fun MainActivityScreen(
             composable(route = Screens.PlaylistScreen.route){
                 // Se mostrarán los botones y el FAB add está en PlaylistScreen
                 showAddFAB=true
-                PlaylistScreenFAB=true
+                playlistScreenFAB=true
                 showProfileFAB=true
                 mainViewModel.updateSongCount()
                 PlaylistsScreen(goBack,mainViewModel,preferencesViewModel,onPlaylistOpen,onPlaylistEdit)
@@ -332,7 +318,7 @@ private fun MainActivityScreen(
             composable(route = Screens.SongsScreen.route){
                 // Se mostrarán los botones y el FAB add no está en PlaylistScreen
                 showAddFAB=true
-                PlaylistScreenFAB=false
+                playlistScreenFAB=false
                 showProfileFAB=true
                 SongsScreen(goBack,mainViewModel)
             }

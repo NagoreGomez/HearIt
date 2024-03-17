@@ -24,7 +24,6 @@ import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -140,14 +139,12 @@ fun Songs(
 
             }
             // Obtener la lista de canciones que se deben mostrar, todas o las filtradas por la búsqueda
-            var songs: List <Song>
-            if (mainViewModel.showSearchSongs) {
-                songs = playlistSongs.value.filter {
+            val songs: List <Song> = if (mainViewModel.showSearchSongs) {
+                playlistSongs.value.filter {
                     it.name.contains(mainViewModel.songsQuery, ignoreCase = true) || it.singer.contains(mainViewModel.songsQuery, ignoreCase = true)
                 }
-            }
-            else{
-                songs = playlistSongs.value
+            } else{
+                playlistSongs.value
             }
 
             // Si hay resultados en la búsqueda
@@ -157,7 +154,7 @@ fun Songs(
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    itemsIndexed(songs) { idx, row ->
+                    itemsIndexed(songs) { _, row ->
                         Spacer(modifier = Modifier.height(20.dp))
                         Card(
                             modifier = Modifier.fillMaxWidth(),

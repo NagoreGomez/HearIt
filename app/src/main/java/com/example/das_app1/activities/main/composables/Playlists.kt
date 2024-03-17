@@ -35,11 +35,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.das_app1.R
 import com.example.das_app1.activities.main.MainViewModel
 import com.example.das_app1.model.entities.Playlist
-import com.example.das_app1.activities.main.screens.Screens
 
 /*************************************************************************
  ****                              Playlists                              ****
@@ -104,7 +102,7 @@ fun Playlists(
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                itemsIndexed(usersPlaylists.value) { idx, row ->
+                itemsIndexed(usersPlaylists.value) { _, row ->
                     Spacer(modifier = Modifier.height(20.dp))
                     Card(
                         modifier = Modifier.fillMaxWidth(),

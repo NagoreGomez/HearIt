@@ -1,12 +1,8 @@
 package com.example.das_app1.activities.main
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.das_app1.model.repositories.IPlaylistRepository
 import com.example.das_app1.preferences.IPreferencesRepository
 import com.example.das_app1.utils.AppLanguage
 import com.example.das_app1.utils.LanguageManager
@@ -14,9 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import java.util.Locale
 import javax.inject.Inject
-import javax.inject.Singleton
 
 
 
@@ -25,9 +19,9 @@ import javax.inject.Singleton
  *************************************************************************/
 
 /**
- * ViewModel Hitl de preferencias, contiene los estados necesarios y se encarga de actualizar la base de datos.
+ * ViewModel Hilt de preferencias, contiene los estados necesarios y se encarga de actualizar la base de datos.
  *
- * @param preferencesRepository [IPreferencesRepository] contiene los metodos necesarios para guardar y obtener los datos de las preferencias.
+ * @param preferencesRepository [IPreferencesRepository] contiene los métodos necesarios para guardar y obtener los datos de las preferencias.
  * @param savedStateHandle [SavedStateHandle] Gestiona el estado guardado, se utiliza para acceder al nombre del usuario identificado.
  */
 
@@ -59,7 +53,7 @@ class PreferencesViewModel @Inject constructor(
     /**
      * Recarga el idioma del usuario.
      *
-     * @param newLang  Idioma seleccionado por el usuario.
+     * @param lang  Idioma seleccionado por el usuario.
      */
     fun reloadLang(lang: AppLanguage) = languageManager.changeLang(lang)
 

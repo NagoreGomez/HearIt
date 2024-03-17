@@ -1,7 +1,6 @@
 package com.example.das_app1.model.entities
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.util.*
 

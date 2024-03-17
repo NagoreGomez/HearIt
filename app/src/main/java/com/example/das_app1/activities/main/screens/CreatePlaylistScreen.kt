@@ -56,7 +56,7 @@ fun CreatePlaylistScreen (
     val coroutineScope = rememberCoroutineScope()
     val onCreate: () -> Unit = {
         coroutineScope.launch(Dispatchers.IO) {
-            var playlist = mainViewModel.createPlaylist()
+            val playlist = mainViewModel.createPlaylist()
             if (playlist ==null){
                 showAddErrorDialog=true
             }

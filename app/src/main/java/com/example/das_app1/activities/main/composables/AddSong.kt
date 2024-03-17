@@ -116,14 +116,12 @@ fun AddSong (
 
         }
         // Obtener la lista de canciones que se deben mostrar, todas o las filtradas por la búsqueda
-        var songsSearch: List <Song>
-        if (mainViewModel.showSearchAddSongs) {
-            songsSearch = songs.value.filter {
+        val songsSearch: List <Song> = if (mainViewModel.showSearchAddSongs) {
+            songs.value.filter {
                 it.name.contains(mainViewModel.addSongQuery, ignoreCase = true) || it.singer.contains(mainViewModel.addSongQuery, ignoreCase = true)
             }
-        }
-        else{
-            songsSearch = songs.value
+        } else{
+            songs.value
         }
 
         // Si hay resultados en la búsqueda
@@ -133,7 +131,7 @@ fun AddSong (
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                itemsIndexed(songsSearch) { idx, row ->
+                itemsIndexed(songsSearch) { _, row ->
 
                     // Si las canciones ya están en la lista se muestran como desactivadas (color mas oscuro y botón add desactivado).
                     val isSongInPlaylist = playlistSongs.value.any { it.id == row.id }

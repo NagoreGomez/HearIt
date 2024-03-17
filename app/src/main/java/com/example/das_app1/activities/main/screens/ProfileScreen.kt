@@ -8,7 +8,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
 import com.example.das_app1.R
 import android.content.res.Configuration
-import android.util.Log
 import com.example.das_app1.activities.main.PreferencesViewModel
 import androidx.compose.ui.platform.LocalConfiguration
 import com.example.das_app1.activities.main.composables.Profile

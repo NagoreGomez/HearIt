@@ -1,7 +1,6 @@
 package com.example.das_app1.activities.main.composables
 
 import android.content.Context
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.border
@@ -439,7 +438,7 @@ fun DescargarAlertDialog(
 
 
 @Composable
-private fun SaveAsJSON(mainViewModel: MainViewModel, playlist: Playlist, context: Context, onHideDialog: () -> Unit,) {
+private fun SaveAsJSON(mainViewModel: MainViewModel, playlist: Playlist, context: Context, onHideDialog: () -> Unit) {
     val contentResolver = LocalContext.current.contentResolver
 
     val saverLauncher = rememberLauncherForActivityResult(contract = ActivityResultContracts.CreateDocument()) { uri ->

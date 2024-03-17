@@ -66,11 +66,11 @@ class PlaylistRepository @Inject constructor(
      * Edita el nombre de una lista.
      *
      * @param playlistId El ID de la lista que se desea editar.
-     * @param playlist El nuevo nombre para la lista.
+     * @param plalistName El nuevo nombre para la lista.
      * @return El número de listas editadas (debería ser 1 si la edición fue exitosa).
      */
-    override fun editPlaylist(playlistId: String,playlist: String):Int{
-        return playlistDao.editPlaylist(playlistId, playlist)
+    override fun editPlaylist(playlistId: String, plalistName: String):Int{
+        return playlistDao.editPlaylist(playlistId, plalistName)
     }
 
     /**

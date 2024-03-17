@@ -3,7 +3,6 @@ package com.example.das_app1.model.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.Relation
 
 /*************************************************************************
  ****                               User                              ****
