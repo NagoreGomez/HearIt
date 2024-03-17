@@ -16,7 +16,6 @@ class MyApp : Application() {
         val mChannel = NotificationChannel("AUTH_CHANNEL", name, NotificationManager.IMPORTANCE_LOW)
         mChannel.description = descriptionText
 
-        // Register the channel with the system
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(mChannel)
 
