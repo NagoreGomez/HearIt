@@ -106,7 +106,6 @@ class MainActivity : AppCompatActivity() {
 
 /**
  * Pantalla principal.
- *
  */
 
 @OptIn(ExperimentalMaterial3Api::class)
